@@ -9,7 +9,7 @@ var paddle1Y;
 var  playerscore =0;
 var audio1;
 var pcscore =0;
-//ball x and y and speedx speed y and radius
+
 var ball = {
     x:350/2,
     y:480/2,
@@ -36,10 +36,9 @@ function draw(){
  stroke("black");
  rect(0,0,20,700);
  
-   //funtion paddleInCanvas call 
    paddleInCanvas();
  
-   //left paddle
+ 
    fill(250,0,0);
     stroke(0,0,250);
     strokeWeight(0.5);
@@ -47,21 +46,21 @@ function draw(){
    rect(paddle1X,paddle1Y,paddle1,paddle1Height,100);
    
    
-    //pc computer paddle
+  
     fill("#FFA500");
     stroke("#FFA500");
    var paddle2y =ball.y-paddle2Height/2;  rect(paddle2Y,paddle2y,paddle2,paddle2Height,100);
     
-    //function midline call
+    
     midline();
     
-    //funtion drawScore call 
+
    drawScore();
    
-   //function models call  
+   
    models();
    
-   //function move call which in very important
+  
     move();
 }
 poseNet = ml5.poseNet(video, modelLoaded);
@@ -70,7 +69,6 @@ function modelLoaded() {
 }
 
 
-//function reset when ball does notcame in the contact of padde
 function reset(){
    ball.x = width/2+100,
    ball.y = height/2+100;
@@ -80,7 +78,6 @@ function reset(){
 }
 
 
-//function midline draw a line in center
 function midline(){
     for(i=0;i<480;i+=10) {
     var y = 0;
@@ -91,7 +88,6 @@ function midline(){
 }
 
 
-//function drawScore show scores
 function drawScore(){
     textAlign(CENTER);
     textSize(20);
@@ -104,7 +100,6 @@ function drawScore(){
 }
 
 
-//very important function of this game
 function move(){
    fill(50,350,0);
    stroke(255,0,0);
@@ -143,7 +138,7 @@ if(pcscore ==4){
 }
 
 
-//width height of canvas speed of ball 
+
 function models(){
     textSize(18);
     fill(255);
@@ -154,7 +149,6 @@ function models(){
 }
 
 
-//this function help to not go te paddle out of canvas
 function paddleInCanvas(){
   if(mouseY+paddle1Height > height){
     mouseY=height-paddle1Height;
@@ -163,4 +157,3 @@ function paddleInCanvas(){
     mouseY =0;
   }  
 }
-© 2021 GitHub, Inc.
